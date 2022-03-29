@@ -7,7 +7,6 @@ import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 // Stub
-@Repository
 public class PostRepository {
     private Map<Long, Post> postBase = new ConcurrentHashMap<>();
     private long counter = 0;
