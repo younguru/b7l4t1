@@ -19,14 +19,15 @@ public class PostRepository {
         return Optional.ofNullable(postBase.get(id));
     }
 
-    synchronized public Post save(Post post) {
+    public Post save(Post post) {
         if (post.getId() == 0) {
-            post.setId(counter.getAndIncrement());
+            post.setId(counter.incrementAndGet());
         }
-        return postBase.put(post.getId(), post);
+        postBase.put(post.getId(), post);
+        return post;
     }
 
-    synchronized public void removeById(long id) {
+    public void removeById(long id) {
         postBase.remove(id);
     }
 }
